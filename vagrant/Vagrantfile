@@ -1,0 +1,58 @@
+
+ vagrant ssh-config
+Gautams-MBP:Manual_provisioning_MacOSM1 gautamkumar$ vagrant ssh-config
+Host db01
+  HostName 127.0.0.1
+  User vagrant
+  Port 2222
+  UserKnownHostsFile /dev/null
+  StrictHostKeyChecking no
+  PasswordAuthentication no
+  IdentityFile /Users/gautamkumar/Devops/DevOps_Udemy/VprofileProject/vprofile-project/vagrant/Manual_provisioning_MacOSM1/.vagrant/machines/db01/vmware_desktop/private_key
+  IdentitiesOnly yes
+  LogLevel FATAL
+  PubkeyAcceptedKeyTypes +ssh-rsa
+  HostKeyAlgorithms +ssh-rsa
+
+Host mc01
+  HostName 127.0.0.1
+  User vagrant
+  Port 2200
+  UserKnownHostsFile /dev/null
+  StrictHostKeyChecking no
+  PasswordAuthentication no
+  IdentityFile /Users/gautamkumar/Devops/DevOps_Udemy/VprofileProject/vprofile-project/vagrant/Manual_provisioning_MacOSM1/.vagrant/machines/mc01/vmware_desktop/private_key
+  IdentitiesOnly yes
+  LogLevel FATAL
+  PubkeyAcceptedKeyTypes +ssh-rsa
+  HostKeyAlgorithms +ssh-rsa
+
+Host rmq01
+  HostName 127.0.0.1
+  User vagrant
+  Port 2201
+  UserKnownHostsFile /dev/null
+  StrictHostKeyChecking no
+  PasswordAuthentication no
+  IdentityFile /Users/gautamkumar/Devops/DevOps_Udemy/VprofileProject/vprofile-project/vagrant/Manual_provisioning_MacOSM1/.vagrant/machines/rmq01/vmware_desktop/private_key
+  IdentitiesOnly yes
+  LogLevel FATAL
+  PubkeyAcceptedKeyTypes +ssh-rsa
+  HostKeyAlgorithms +ssh-rsa
+
+Host app01
+  HostName 127.0.0.1
+  User vagrant
+  Port 2202
+  UserKnownHostsFile /dev/null
+  StrictHostKeyChecking no
+  PasswordAuthentication no
+  IdentityFile /Users/gautamkumar/Devops/DevOps_Udemy/VprofileProject/vprofile-project/vagrant/Manual_provisioning_MacOSM1/.vagrant/machines/app01/vmware_desktop/private_key
+  IdentitiesOnly yes
+  LogLevel FATAL
+  PubkeyAcceptedKeyTypes +ssh-rsa
+  HostKeyAlgorithms +ssh-rsa
+
+
+ssh -i .vagrant/machines/mc01/vmware_desktop/private_key vagrant@127.0.0.1 -p 2200
+ssh -i .vagrant/machines/app01/vmware_desktop/private_key vagrant@127.0.0.1 -p 2202
