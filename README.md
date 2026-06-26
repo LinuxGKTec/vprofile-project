@@ -23,3 +23,5 @@ sql dump file:
 - > mysql -u <user_name> -p accounts < db_backup.sql
 
 
+#To create ingress controller run the folllwing command 
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.1.3/deploy/static/provider/aws/deploy.yaml
