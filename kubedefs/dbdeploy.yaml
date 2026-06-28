@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: vprodb
-          image: linuxgktech/vprofiledb:v1.0
+          image: linuxgktech/vprofiledb:v2.0
           ports:
             - name: vprodb-port
               containerPort: 3306
@@ -34,8 +34,8 @@ spec:
 # InitContainer to make /var/lib/mysql folder empety
       initContainers: 
         - name:  busybox
-          image: busybox:busybox:latest
-          command: ["sh", "-c", "rm -rf //var/lib/mysql/lost+found"]
+          image: busybox:latest
+          command: ["sh", "-c", "rm -rf /var/lib/mysql/lost+found"]
           volumeMounts: 
             - name: vpro-db-data
               mountPath: /var/lib/mysql

@@ -1,3 +1,4 @@
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
@@ -14,7 +15,7 @@ spec:
         app: vproapp
     spec:
       containers:
-      - image: linuxgktech/vprofileapp:v1.0
+      - image: linuxgktech/vprofileapp:v2.0
         name: vproapp
         imagePullPolicy: Always
         ports:
@@ -23,11 +24,14 @@ spec:
       initContainers:
       - name: init-mydb
         image: busybox
-        args: ['-c', 'until nslookup vprodb.$(cat /var/run/secrets/kubernetes.io/serviceaccount/namespace).svc.cluster.local; do echo waiting for mydb; sleep 2; done;']
+        command: ['sh', '-c']
+        args: ['until nslookup vprodb.$(cat /var/run/secrets/kubernetes.io/serviceaccount/namespace).svc.cluster.local; do echo waiting for mydb; sleep 2; done;']
       - name: init-memcache
         image: busybox
-        args: ['-c', 'until nslookup vprocache01.$(cat /var/run/secrets/kubernetes.io/serviceaccount/namespace).svc.cluster.local; do echo waiting for mydb; sleep 2; done;']  
+        command: ['sh', '-c']
+        args: ['until nslookup vprocache01.$(cat /var/run/secrets/kubernetes.io/serviceaccount/namespace).svc.cluster.local; do echo waiting for mydb; sleep 2; done;']  
 
       - name: init-rabbitmq
         image: busybox
-        args: ['-c', 'until nslookup vpromq01.$(cat /var/run/secrets/kubernetes.io/serviceaccount/namespace).svc.cluster.local; do echo waiting for mydb; sleep 2; done;']  
+        command: ['sh', '-c']
+        args: ['until nslookup vpromq01.$(cat /var/run/secrets/kubernetes.io/serviceaccount/namespace).svc.cluster.local; do echo waiting for mydb; sleep 2; done;']  
